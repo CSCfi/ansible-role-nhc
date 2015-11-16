@@ -1,0 +1,10 @@
+---
+# tasks file for ansible-role-nhc
+#
+ - name: install NHC from github 
+   yum: pkg={{ nhc_rpm_url }}
+   when: nhc_github
+
+ - name: install NHC from a yum repo
+   yum: pkg=lbnl-nhc
+   when: nhc_yum
