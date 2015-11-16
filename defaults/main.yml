@@ -7,3 +7,6 @@ nhc_url: "https://github.com/mej/nhc/releases/download/1.4.2/lbnl-nhc-{{ nhc_ver
 # These are mutually exclusive. Only one true at a time.
 nhc_github: True
 nhc_yum: False
+
+nhc_scripts:
+ - ""
