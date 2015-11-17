@@ -30,6 +30,9 @@
 #   * || export MOABHOMEDIR="/opt/moab"
 #   * || export PATH="$MOABHOMEDIR/bin:$PATH"
 
+# Nodes are called by their short name
+# Without this nhc will try to mark online/offline the full hostname
+  * || HOSTNAME="$(hostname -s)"
 
 #######################################################################
 ###
