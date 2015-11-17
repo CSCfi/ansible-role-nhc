@@ -2,7 +2,7 @@
 # defaults file for ansible-role-nhc
 
 nhc_version: "1.4.2-1"
-nhc_url: "https://github.com/mej/nhc/releases/download/1.4.2/lbnl-nhc-{{ nhc_version }}.el{{ ansible_distribution_major_version }}.noarch.rpm"
+nhc_rpm_url: "https://github.com/mej/nhc/releases/download/1.4.2/lbnl-nhc-{{ nhc_version }}.el{{ ansible_distribution_major_version }}.noarch.rpm"
 
 # These are mutually exclusive. Only one true at a time.
 nhc_github: True
