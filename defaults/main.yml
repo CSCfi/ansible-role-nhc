@@ -9,4 +9,7 @@ nhc_github: True
 nhc_yum: False
 
 nhc_scripts:
- - ""
+ - "healthcheck.nhc"
+
+nhc_checks:
+ - { name: "check_reboot_slurm", arguments: "" }

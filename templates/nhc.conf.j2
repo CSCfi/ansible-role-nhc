@@ -204,3 +204,16 @@
 
 # nVidia HealthMon GPU health checks (requires Tesla Development Kit)
 #   * || check_nv_healthmon
+
+{% if nhc_scripts.0 is defined %}
+#######################################################################
+###
+### More checks
+###
+#
+
+{% for nhc_check in nhc_checks %}
+    * || {{ nhc_check.name }} {{ nhc_check.arguments }}
+{% endfor %}
+
+{% endif %}
