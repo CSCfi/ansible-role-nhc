@@ -6,4 +6,5 @@
 
  - name: add nhc scripts
    template: src={{ item }} dest=/etc/nhc/scripts/{{ item }} backup=yes mode=0644
+   with_items: nhc_scripts
    when: nhc_scripts.0 != ""
