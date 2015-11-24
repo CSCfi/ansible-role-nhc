@@ -7,4 +7,4 @@
 
  - name: install NHC from a yum repo
    yum: pkg=lbnl-nhc
-   when: nhc_yum
+   when: nhc_github == False

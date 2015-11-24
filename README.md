@@ -12,6 +12,10 @@ Requirements
 Role Variables
 --------------
 
+If nhc_github is set to False it installs it from a pre-configured yum-repo.
+Default is True
+
+nhc_github: True
 
 Dependencies
 ------------

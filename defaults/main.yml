@@ -4,9 +4,8 @@
 nhc_version: "1.4.2-1"
 nhc_rpm_url: "https://github.com/mej/nhc/releases/download/1.4.2/lbnl-nhc-{{ nhc_version }}.el{{ ansible_distribution_major_version }}.noarch.rpm"
 
-# These are mutually exclusive. Only one true at a time.
+# If False - install from a pre-configured yum repo
 nhc_github: True
-nhc_yum: False
 
 nhc_scripts:
  - "healthcheck.nhc"
