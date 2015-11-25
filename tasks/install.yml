@@ -1,6 +1,12 @@
 ---
 # tasks file for ansible-role-nhc
 #
+
+
+  - name: Install FGCI repo
+    yum: pkg=http://idris.fgi.csc.fi/fgci7/x86_64/fgci/rpms/fgci-release7-1-1.el7.noarch.rpm
+    when: ansible_distribution_major_version == "7"
+
  - name: install NHC from github 
    yum: pkg={{ nhc_rpm_url }}
    when: nhc_github
