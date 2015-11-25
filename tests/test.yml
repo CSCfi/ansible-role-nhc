@@ -1,0 +1,8 @@
+---
+
+ - hosts: localhost
+   remote_user: root
+   vars:
+     - nis_github: False
+   roles:
+     - ansible-role-nhc
