@@ -9,6 +9,7 @@ nhc_github: True
 
 nhc_scripts:
  - "healthcheck.nhc"
+ - "csc_nvidia_smi.nhc"
 
 # Variables below are used inside the template for nhc.conf
 nhc_rm: "slurm"
