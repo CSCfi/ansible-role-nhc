@@ -12,7 +12,7 @@
 ### NHC Configuration Variables
 ###
 # Explicitly instruct NHC to assume PBS (TORQUE, PBSPro) is the Resource Manager
-   * || export NHC_RM=slurm
+   * || export NHC_RM={{ nhc_rm }}
 
 # Do not mark nodes offline
 #   * || export MARK_OFFLINE=0
@@ -30,9 +30,11 @@
 #   * || export MOABHOMEDIR="/opt/moab"
 #   * || export PATH="$MOABHOMEDIR/bin:$PATH"
 
+{% if nhc_short_hostname == true %}
 # Nodes are called by their short name
 # Without this nhc will try to mark online/offline the full hostname
   * || HOSTNAME="$(hostname -s)"
+{% endif %}
 
 #######################################################################
 ###
@@ -54,19 +56,21 @@
 #   * || check_hw_physmem_free 1MB
 
 # Same, but for swap space.
-   * || check_hw_swap_free 1MB
+   * || check_hw_swap_free {{ nhc_hw_swap_free }}
 
 # Check for some sort of free memory of either type.
-   * || check_hw_mem_free 1MB
+   * || check_hw_mem_free {{ nhc_hw_mem_free }}
 
+{% if infiniband_available == true %}
 # Checks that there's a FDR IB interface that's ACTIVE and shows LinkUp.
-   * || check_hw_ib 56
+   * || check_hw_ib {{ nhc_hw_ib }}
+{% endif %}
 
 # Checks for an active Myrinet interface named "myri0."
 #   * || check_hw_gm myri0
 
 # Checks for an active ethernet interface named "eth1."
-   * || check_hw_eth em1
+   * || check_hw_eth {{ nhc_hw_eth }}
 
 # Make sure we're running the correct BIOS version on all nodes.
 #   * || check_dmi_data_match "BIOS Information: Version: 2.0.1"
@@ -74,8 +78,10 @@
 # Make sure our RAM is running at the correct bus rate.
 #   * || check_dmi_data_match -t "Memory Device" "*Speed: 1866 MHz"
 
+{% if nhc_hw_mcelog == true %}
 # Check the mcelog daemon for any pending errors.
    * || check_hw_mcelog
+{% endif %}
 
 
 #######################################################################
@@ -121,8 +127,12 @@
 # Validate a couple important accounts in the passwd file.
 #   * || check_file_contents /etc/passwd "/^root:x:0:0:/" "sshd:*"
 
+{% if nhc_fs_mount_rw_scratch == true %}
    *  || check_fs_mount_rw /scratch
+{% endif% %}
+{% if nhc_fs_mount_rw_home == true %}
    *  || check_fs_mount_rw /home
+{% endif% %}
    *  || check_fs_mount_rw /dev/pts '/(none|devpts)/' devpts
 
 
@@ -213,7 +223,7 @@
 #
 
 {% for nhc_check in nhc_checks %}
-    * || {{ nhc_check.name }} {{ nhc_check.arguments }}
+    {{ nhc_check.match }} || {{ nhc_check.name }} {{ nhc_check.arguments }}
 {% endfor %}
 
 {% endif %}

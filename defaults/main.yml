@@ -10,5 +10,19 @@ nhc_github: True
 nhc_scripts:
  - "healthcheck.nhc"
 
+# Variables below are used inside the template for nhc.conf
+nhc_rm: "slurm"
+
+nhc_short_hostname: True
+
+nhc_hw_swap_free: "1MB"
+nhc_hw_mem_free: "1MB"
+infiniband_available: false
+nhc_hw_ib: "56"
+nhc_hw_eth: "em1"
+nhc_hw_mcelog: True
+nhc_fs_mount_rw_scratch: true
+nhc_fs_mount_rw_home: true
+
 nhc_checks:
- - { name: "check_reboot_slurm", arguments: "" }
+ - { match: "*", name: "check_reboot_slurm", arguments: "" }
