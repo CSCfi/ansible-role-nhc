@@ -215,6 +215,11 @@
 # nVidia HealthMon GPU health checks (requires Tesla Development Kit)
 #   * || check_nv_healthmon
 
+{% if gpu == true %}
+# nVidia-smi GPU health checks (requires Tesla Development Kit)
+   * || check_nvsmi_healthmon
+{% endif %}
+
 {% if nhc_scripts.0 is defined %}
 #######################################################################
 ###

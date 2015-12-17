@@ -24,5 +24,7 @@ nhc_hw_mcelog: True
 nhc_fs_mount_rw_scratch: true
 nhc_fs_mount_rw_home: true
 
+gpu: False
+
 nhc_checks:
  - { match: "*", name: "check_reboot_slurm", arguments: "" }
