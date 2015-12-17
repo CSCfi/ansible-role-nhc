@@ -51,7 +51,7 @@ function install_ansible_devel() {
 # http://docs.ansible.com/ansible/intro_installation.html#latest-release-via-yum
 echo "TEST: building ansible"
 
-yum -y install PyYAML python-paramiko python-jinja2 python-httplib2 rpm-build make python2-devel asciidoc
+yum -y install PyYAML python-paramiko python-jinja2 python-httplib2 rpm-build make python2-devel asciidoc file ethtool iproute iptables less lzo which groff-base libunistring
 rm -Rf ansible
 git clone https://github.com/ansible/ansible --recursive ||(echo "Could not clone ansible from Github" && exit 2 )
 cd ansible
