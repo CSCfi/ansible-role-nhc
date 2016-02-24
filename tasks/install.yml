@@ -17,6 +17,7 @@
    register: reg_nhc_github_installed
    always_run: True
    ignore_errors: True
+   when: nhc_github
 
  - name: install NHC from github 
    yum: pkg={{ nhc_rpm_url }}
