@@ -1,5 +1,5 @@
 #!/bin/bash
-# {{ ansible_managed }}
+# Managed by Ansible
 ##
 # SLURM health check program
 # ulf.tigerstedt@csc.fi 2012
