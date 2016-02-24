@@ -1,8 +1,8 @@
 ---
 # defaults file for ansible-role-nhc
 
-nhc_version: "1.4.2-1"
-nhc_rpm_url: "https://github.com/mej/nhc/releases/download/1.4.2/lbnl-nhc-{{ nhc_version }}.el{{ ansible_distribution_major_version }}.noarch.rpm"
+nhc_version: "1.4.2"
+nhc_rpm_url: "https://github.com/mej/nhc/releases/download/{{ nhc_version }}/lbnl-nhc-{{ nhc_version }}-1.el{{ ansible_distribution_major_version }}.noarch.rpm"
 
 # If False - install from a pre-configured yum repo
 nhc_github: True
