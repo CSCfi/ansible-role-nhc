@@ -18,14 +18,16 @@ nhc_short_hostname: True
 
 nhc_hw_swap_free: "1MB"
 nhc_hw_mem_free: "1MB"
-infiniband_available: false
+infiniband_available: False
 nhc_hw_ib: "56"
 nhc_hw_eth: "em1"
 nhc_hw_mcelog: True
-nhc_fs_mount_rw_scratch: true
-nhc_fs_mount_rw_home: true
+nhc_fs_mount_rw_scratch: True
+nhc_fs_mount_rw_home: True
 
 gpu: False
+
+nhc_use_default_checks: True
 
 nhc_checks:
  - { match: "*", name: "check_reboot_slurm", arguments: "" }

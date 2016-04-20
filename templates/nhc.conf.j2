@@ -36,6 +36,8 @@
   * || HOSTNAME="$(hostname -s)"
 {% endif %}
 
+{% if nhc_use_default_checks == true %}
+
 #######################################################################
 ###
 ### Hardware checks
@@ -222,6 +224,7 @@
 
 {% if nhc_scripts.0 is defined %}
 #######################################################################
+### nhc_scripts is a list of extra nhc scripts which are copied in via ansible
 ###
 ### More checks
 ###
@@ -231,4 +234,18 @@
     {{ nhc_check.match }} || {{ nhc_check.name }} {{ nhc_check.arguments }}
 {% endfor %}
 
+{% endif %}
+
+{% else %}
+{% if nhc_scripts.0 is defined %}
+# Not using any defaults - only the ones defined in nhc_checks
+#######################################################################
+###
+### More checks
+###
+#
+
+{% for nhc_check in nhc_checks %}
+    {{ nhc_check.match }} || {{ nhc_check.name }} {{ nhc_check.arguments }}
+{% endfor %}
 {% endif %}
