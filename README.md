@@ -24,6 +24,7 @@ nhc_use_default_checks: True
 
 nhc_checks:
  - { match: "*", name: "check_reboot_slurm", arguments: "" }
+ - { match: "{gpu[1-19]}", name: "check_hw_ib", arguments: "40" }
 </pre>
 
 Dependencies
