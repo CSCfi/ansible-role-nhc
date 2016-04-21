@@ -18,6 +18,14 @@ Default is True
 
 nhc_github: True
 
+If we set nhc_use_default_checks to True - then all the default checks in nhc.conf will not be added. Only the ones in nhc_checks list.
+<pre>
+nhc_use_default_checks: True
+
+nhc_checks:
+ - { match: "*", name: "check_reboot_slurm", arguments: "" }
+</pre>
+
 Dependencies
 ------------
 
