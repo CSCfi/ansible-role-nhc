@@ -3,6 +3,7 @@
  - hosts: localhost
    remote_user: root
    vars:
+     nhc_short_hostname: False
      nis_github: False
      nhc_use_default_checks: True
      nhc_checks:
