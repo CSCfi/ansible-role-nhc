@@ -12,8 +12,10 @@
 ### NHC Configuration Variables
 ###
 {% if nhc_rm is defined %}
+{% if not nhc_rm %}
 # Explicitly instruct NHC to assume PBS (TORQUE, PBSPro) is the Resource Manager
    * || export NHC_RM={{ nhc_rm }}
+{% endif %}
 {% endif %}
 
 # Do not mark nodes offline
