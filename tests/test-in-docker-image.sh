@@ -121,7 +121,8 @@ function extra_tests(){
 
     echo "TEST: show nhc.conf"
     cat /etc/nhc/nhc.conf
-    #${APACHE_CTL} configtest || (echo "php --version was failed" && exit 100 )
+    echo "TEST: run nhc!"
+    /usr/sbin/nhc -d -t 0 MARK_OFFLINE=0
 }
 
 
