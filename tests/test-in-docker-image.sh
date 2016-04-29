@@ -122,7 +122,7 @@ function extra_tests(){
     echo "TEST: show nhc.conf"
     cat /etc/nhc/nhc.conf
     echo "TEST: run nhc!"
-    /usr/sbin/nhc -d -t 0 MARK_OFFLINE=0
+    /usr/sbin/nhc -d -t 0 MARK_OFFLINE=0 NHC_RM=""
 }
 
 
