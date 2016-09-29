@@ -221,11 +221,6 @@
 # nVidia HealthMon GPU health checks (requires Tesla Development Kit)
 #   * || check_nv_healthmon
 
-{% if gpu == true %}
-# nVidia-smi GPU health checks (requires Tesla Development Kit)
-   * || check_nvsmi_healthmon
-{% endif %}
-
 {% if nhc_scripts.0 is defined %}
 #######################################################################
 ### nhc_scripts is a list of extra nhc scripts which are copied in via ansible
@@ -253,4 +248,11 @@
     {{ nhc_check.match }} || {{ nhc_check.name }} {{ nhc_check.arguments }}
 {% endfor %}
 {% endif %}
+{% endif %}
+
+# The check_nvsmi_healthmon check sets node as state "reboot" in slurm
+# So any NHC check which reboots node if state is "reboot" needs to be before check_nvsmi_healthmon (like check_reboot_slurm)
+{% if gpu == true %}
+# nVidia-smi GPU health checks (requires Tesla Development Kit)
+   * || check_nvsmi_healthmon
 {% endif %}
