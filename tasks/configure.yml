@@ -1,10 +1,10 @@
 ---
 # tasks file for ansible-role-nhc
 #
- - name: configure NHC 
+ - name: template in nhc.conf
    template: src=nhc.conf.j2 dest=/etc/nhc/nhc.conf backup=yes mode=0644
 
- - name: add nhc scripts
+ - name: template in extra nhc scripts
    template: src={{ item }} dest=/etc/nhc/scripts/{{ item }} backup=yes mode=0644
    with_items: "{{ nhc_scripts }}"
    when: nhc_scripts.0 != ""
