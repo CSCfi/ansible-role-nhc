@@ -5,7 +5,7 @@
  - name: Check if fgci-release7 is installed
    package: pkg=fgci-release7 state=installed
    register: reg_nhc_fgci7_installed
-   always_run: True
+   check_mode: no
    ignore_errors: True
 
  - name: Install FGCI repo
@@ -15,7 +15,7 @@
  - name: Check if lbnl-nhc-nhc_version is installed
    package: pkg=lbnl-nhc-{{ nhc_version }} state=installed
    register: reg_nhc_github_installed
-   always_run: True
+   check_mode: no
    ignore_errors: True
    when: nhc_github
 
