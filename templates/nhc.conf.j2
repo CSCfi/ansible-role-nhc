@@ -86,7 +86,7 @@
 
 {% if nhc_hw_mcelog == true %}
 # Check the mcelog daemon for any pending errors.
-   * || check_hw_mcelog
+   * || MCELOG_MAX_CORRECTED_RATE={{ nhc_mcelog_max_corrected_rate }} check_hw_mcelog
 {% endif %}
 
 
