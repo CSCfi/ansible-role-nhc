@@ -22,6 +22,8 @@ infiniband_available: False
 nhc_hw_ib: "56"
 nhc_hw_eth: "em1"
 nhc_hw_mcelog: True
+# By default allow 100 corrected errors/24h
+nhc_mcelog_max_corrected_rate: 100
 nhc_fs_mount_rw_scratch: True
 nhc_fs_mount_rw_home: True
 
