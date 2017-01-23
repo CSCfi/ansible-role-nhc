@@ -12,6 +12,7 @@
       - { match: '{gpu[1-19]}', name: "check_hw_ib", arguments: "40" }
       - { match: "{gpu[2-22]}", name: "check_hw_ib", arguments: "56" }
       - { match: "*", name: "check_hw_eth", arguments: "eth0" }
+      - { match: "*", name: "MCELOG_MAX_CORRECTED_RATE={{ nhc_mcelog_max_corrected_rate }} check_hw_mcelog", arguments: "" }
 
    roles:
      - ansible-role-nhc
