@@ -1,6 +1,6 @@
 ---
 # tasks file for ansible-role-nhc
 #
- - include: install.yml
+ - include_tasks: install.yml
    when: ansible_os_family == "RedHat"
- - include: configure.yml
+ - import_tasks: configure.yml
