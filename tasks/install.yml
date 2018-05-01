@@ -10,7 +10,7 @@
 
  - name: Install FGCI repo
    package: pkg=http://idris.fgi.csc.fi/fgci7/x86_64/fgci/rpms/fgci-release7-1-1.el7.noarch.rpm
-   when: ansible_distribution_major_version == "7" and reg_nhc_fgci7_installed|failed and nhc_github == False
+   when: ansible_distribution_major_version == "7" and reg_nhc_fgci7_installed is failed and nhc_github == False
 
  - name: Check if lbnl-nhc-nhc_version is installed
    package: pkg=lbnl-nhc-{{ nhc_version }} state=installed
@@ -21,7 +21,7 @@
 
  - name: install NHC from github 
    package: pkg={{ nhc_rpm_url }}
-   when: nhc_github and reg_nhc_github_installed|failed
+   when: nhc_github and reg_nhc_github_installed is failed
 
  - name: install NHC from a yum repo
    package: pkg=lbnl-nhc
