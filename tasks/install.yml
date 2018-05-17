@@ -21,7 +21,7 @@
 
  - name: install NHC from github 
    package: pkg={{ nhc_rpm_url }}
-   when: nhc_github and reg_nhc_github_installed|failed
+   when: nhc_github and reg_nhc_github_installed is failed
 
  - name: install NHC from a yum repo
    package: pkg=lbnl-nhc
