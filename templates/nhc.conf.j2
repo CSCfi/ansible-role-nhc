@@ -42,6 +42,21 @@
 
 {% if nhc_use_default_checks == true %}
 
+{% if nhc_scripts.0 is defined %}
+#######################################################################
+### nhc_scripts is a list of extra nhc scripts which are copied in via ansible
+###
+### More checks
+###
+#
+
+{% for nhc_check in nhc_checks %}
+    {{ nhc_check.match }} || {{ nhc_check.name }} {{ nhc_check.arguments }}
+{% endfor %}
+
+{% endif %}
+
+
 #######################################################################
 ###
 ### Hardware checks
@@ -220,20 +235,6 @@
 
 # nVidia HealthMon GPU health checks (requires Tesla Development Kit)
 #   * || check_nv_healthmon
-
-{% if nhc_scripts.0 is defined %}
-#######################################################################
-### nhc_scripts is a list of extra nhc scripts which are copied in via ansible
-###
-### More checks
-###
-#
-
-{% for nhc_check in nhc_checks %}
-    {{ nhc_check.match }} || {{ nhc_check.name }} {{ nhc_check.arguments }}
-{% endfor %}
-
-{% endif %}
 
 {% else %}
 {% if nhc_scripts.0 is defined %}
